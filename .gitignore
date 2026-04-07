@@ -1,3 +1,9 @@
+# bun related
+node_modules/
+.env
+.env.*
+!.env.example
+
 # snapshot files
 **/*.snp
 **/*.snp.txt
