@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Excalidraw collaboration room server",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
-    "start": "bun src/index.js",
-    "dev": "bun --watch src/index.js"
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
   },
   "dependencies": {
     "socket.io": "^4.8.1"

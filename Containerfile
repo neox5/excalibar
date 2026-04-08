@@ -1,15 +1,10 @@
-FROM docker.io/oven/bun:alpine AS builder
+FROM docker.io/node:22-alpine
 
 WORKDIR /app
 
-COPY package.json bun.lock ./
-RUN bun install --frozen-lockfile --production
+COPY package.json ./
+RUN npm install --omit=dev
 
-FROM oven/bun:alpine AS runtime
-
-WORKDIR /app
-
-COPY --from=builder /app/node_modules ./node_modules
 COPY src ./src
 
 ENV PORT=80
@@ -17,4 +12,4 @@ ENV CORS_ORIGIN=*
 
 EXPOSE 80
 
-CMD ["bun", "src/index.js"]
+CMD ["node", "src/index.js"]
